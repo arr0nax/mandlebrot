@@ -39,7 +39,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
             ctx.fillStyle = '#000';
             ctx.fillRect(x+myCanvas.width/2,y+myCanvas.height/2, 10,10); // Draw a black pixel
           } else {
-            ctx.fillStyle = 'hsl('+(belongsToSet%360)+', 100%, ' + (belongsToSet) + '%)';
+            ctx.fillStyle = 'hsl('+(belongsToSet*3.6)+', 100%, ' + (belongsToSet) + '%)';
             ctx.fillRect(x+myCanvas.width/2,y+myCanvas.height/2, 10,10); // Draw a colorful pixel
           }
         }
