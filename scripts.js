@@ -1,6 +1,6 @@
 var magnificationFactor = 100;
-var panX = 0;
-var panY = 0;
+var panX = -0.2576403924732034;
+var panY =  0.0011960709666803428;
 var myCanvas;
 var ctx;
 var coords;
