@@ -1,4 +1,4 @@
-var magnificationFactor = 100;
+var magnificationFactor = 20;
 var panX = -0.2576403924732034;
 var panY =  0.0011960709666803428;
 var myCanvas;
@@ -6,18 +6,22 @@ var ctx;
 var coords;
 var buttonCount = 0;
 var savedPoints = [];
+var width;
+var height;
 
 
 document.addEventListener("DOMContentLoaded", function(event) {
   //do work
-  coords = document.createTextNode("x: "+panX+", y: "+panY+", magnification factor: "+magnificationFactor)
-  document.body.appendChild(coords);
+  coords = document.getElementById("coords")
 
   // Create Canvas
   myCanvas = document.createElement("canvas");
 
-  myCanvas.width=1000;
-  myCanvas.height=1000;
+  height = window.innerHeight-70;
+  width = height;
+
+  myCanvas.width=width;
+  myCanvas.height=height;
   document.body.appendChild(myCanvas);
   ctx = myCanvas.getContext("2d");
 
@@ -45,7 +49,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
         }
       }
 
-      coords.nodeValue = ("x: "+panX+", y: "+panY+", magnification factor: "+magnificationFactor);
+      coords.innerHTML = ("x: "+panX+", y: "+panY+", magnification factor: "+magnificationFactor);
   }
 
   function checkIfBelongsToMandelbrotSet(x,y) {
@@ -72,10 +76,10 @@ function reply_click(id) {
   draw();
 }
 
-function origin() {
-  panX = 0;
-  panY = 0;
-  magnificationFactor = 100;
+function original() {
+  panX = -0.2576403924732034;
+  panY = 0.0011960709666803428;
+  magnificationFactor = 20;
   draw();
 }
 
@@ -155,6 +159,9 @@ function keyDownHandler(e) {
                         case 57:
                           reply_click(9);
                           break;
+                          case 79:
+                            original();
+                            break;
 
     default:
       break;
